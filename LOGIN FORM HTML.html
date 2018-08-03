@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+    <title>LOGIN</title>
+<style>
+body
+{
+background-image:url("sonam-kapoor-73a.jpg");
+background-size: cover;
+}
+#forms
+{
+width: 40%;
+height: 500px;
+background-color: rgba(20, 21, 22, 0.52);
+}
+.input
+{
+  margin-top: 10px;
+  width: 80%;
+  height: 30px;
+}
+.gen
+{
+  margin:5px;
+
+}
+.gender
+{
+  color: white;
+}
+.log
+  {
+  font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    font-size: 30px;
+    color: cornflowerblue;
+  }
+</style>
+    <script>
+
+        function leave()
+        {
+            document.getElementById("er").innerHTML="";
+        }
+
+       function results()
+       {
+            leave();
+           var x=document.getElementById("name1").value;
+           var address=document.getElementById("adrs").value;
+           var phone=document.getElementById("phn").value;
+           var password=document.getElementById("pass").value;
+           var conpassword=document.getElementById("match").value;
+           var email=document.getElementById("mail").value;
+
+           if(x=="")
+           {
+               document.getElementById("er").innerHTML="don't leave it blank";
+               return false;
+           }
+
+           else if (x.length <3)
+           {
+
+               document.getElementById("er").innerHTML="enter minimum 3 words";
+               return wrong
+           }
+
+           else if(x.length >=20)
+           {
+
+               document.getElementById("er").innerHTML="limit only 20 words";
+               return wrong
+           }
+          if(x=="+")
+           {
+               document.getElementById("er").innerHTML="Special char Not allow";
+               return wrong
+           }
+          if(!isNaN(x))
+           {
+               document.getElementById("er").innerHTML="numbers are not allowd";
+
+           }
+
+
+
+           else if(address=="")
+           {
+               document.getElementById("error1").innerHTML="please don't leave it blank";
+               return wrong;
+           }
+
+           else if( (address.length<5) || (address.length>=30) )
+           {
+               document.getElementById("error1").innerHTML="text uder 5 to 30 ";
+               return wrong;
+           }
+
+
+
+
+           else if(phone=="")
+           {
+               document.getElementById("error2").innerHTML="please enter valid number";
+               return wrong;
+           }
+           else  if(phone.length!=10)
+           {
+               document.getElementById("error2").innerHTML="It will be take only 10 digit";
+               return wrong;
+           }
+           else if(isNaN(phone))
+           {
+               document.getElementById("error2").innerHTML="Char are not alwd";
+               return wrong;
+           }
+
+
+
+           else if(password=="")
+           {
+               document.getElementById("error3").innerHTML="Don't leave it empty";
+               return wrong;
+           }
+
+           else if( (password<5) || (password>10))
+           {
+               document.getElementById("error3").innerHTML="put your password under 5 to 10 digits";
+               return wrong;
+           }
+
+           else if(password!=conpassword)
+            {
+                document.getElementById("error3").innerHTML="OPSS!!!! NOT MATCHING";
+                return wrong;
+            }
+
+
+           else if(conpassword=="")
+           {
+               document.getElementById("error4").innerHTML="please enter valid";
+               return wrong;
+           }
+
+
+
+
+           else if(email=="")
+           {
+               document.getElementById("error5").innerHTML="Don't leave it blank";
+               return wrong
+           }
+           else if(email.indexOf('@')<=0)
+           {
+               document.getElementById("error5").innerHTML="OPSSS INVALID CHAR";
+               return wrong
+           }
+           else if(email.charAt(email.length-4) || (email.length-3)!='.')
+          {
+              document.getElementById("error5").innerHTML="Check Domain Name";
+              return wrong;
+          }
+
+
+}
+
+    </script>
+
+</head>
+<body ><center>
+
+
+<div id="forms">
+    <form action="#" onsubmit=" return results()">
+            <center class="log"><b>Register Form :</b></center>
+
+                <input class="input" id="name1" type="text" placeholder="Fname"><br/>
+                <span id="er" style="color: red"></span><br/>
+
+                <input class="input" id="adrs" type="text" placeholder="Address"><br/>
+                <span id="error1" style="color: red"></span><br/>
+
+                <input class="input" id="phn" type="text" placeholder="Phone-No"><br/>
+                <span id="error2" style="color: red"></span><br/>
+
+                     <input class="input" id="pass" type="text" placeholder="Password"><br/>
+                    <span  id="error3" style="color: red"></span><br/>
+
+                    <input class="input" id="match" type="text" placeholder="  conform-password"><br/>
+                    <span id="error4" style="color: red"></span><br/>
+
+                    <input class="input" id="mail" type="text" placeholder="E-mail"><br/>
+                    <span id="error5" style="color: red"></span><br/>
+                    <input class="gen" type="radio" name="gender" value="male" checked><span class="gender"> Male</span>
+                <input  class="gen" type="radio" name="gender" value="female"  /> <sapn class="gender">Female</sapn>
+                <input  class="gen" type="radio" name="gender" value="other"/><span class="gender"> Other</span>  <br/><br/>
+
+        <button type="submit"  onclick="results()"  value="submit" >submit</button>
+            <input type="reset"   value="reset">
+
+
+    </form>
+
+</div>
+</center>
+</body>
+</html>
